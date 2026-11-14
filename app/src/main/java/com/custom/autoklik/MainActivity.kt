@@ -130,13 +130,13 @@ class MainActivity : AppCompatActivity() {
         contentResolver.openInputStream(uri)?.use { inputStream ->
             BufferedReader(InputStreamReader(inputStream)).forEachLine { baris ->
                 val bagian = baris.trim().lowercase().split("\\s+".toRegex())
-                if (bagian.size == 2 && (bagian[1] == "b" || bagian[1] == "s")) {
-                    val jamAsliStr = bagian[0].replace(".", ":")
-                    val huruf = bagian[1]
+                if (bagian.size == 2 && (bagian.get(1) == "b" || bagian.get(1) == "s")) {
+                    val jamAsliStr = bagian.get(0).replace(".", ":")
+                    val huruf = bagian.get(1)
                     try {
                         val parts = jamAsliStr.split(":")
-                        val jamTarget = LocalTime.of(parts[0].toInt(), parts[1].toInt(), 0)
-                        val waktuEksekusi = jamTarget.minusSeconds(2) // Maju 2 detik
+                        val jamTarget = LocalTime.of(parts.get(0).toInt(), parts.get(1).toInt(), 0)
+                        val waktuEksekusi = jamTarget.minusSeconds(1) // Maju 2 detik
 
                         if (!waktuEksekusi.isBefore(sekarang)) {
                             val kunci = waktuEksekusi.format(formatDetik)
