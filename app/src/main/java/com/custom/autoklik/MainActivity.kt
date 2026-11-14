@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
                     try {
                         val parts = jamAsliStr.split(":")
                         val jamTarget = LocalTime.of(parts[0].toInt(), parts[1].toInt(), 0)
-                        val waktuEksekusi = jamTarget.minusSeconds(1) // Maju 2 detik
+                        val waktuEksekusi = jamTarget.minusSeconds(2) // Maju 2 detik
 
                         if (!waktuEksekusi.isBefore(sekarang)) {
                             val kunci = waktuEksekusi.format(formatDetik)
