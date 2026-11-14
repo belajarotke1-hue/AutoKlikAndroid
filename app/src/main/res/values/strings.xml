@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AutoKlik Jadwal</string>
+    <string name="service_desc">Layanan klik layar otomatis sesuai jadwal daftar.txt</string>
+</resources>
